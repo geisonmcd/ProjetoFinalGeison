@@ -27,11 +27,8 @@ public class PessoaServlet extends HttpServlet {
          response.setCharacterEncoding("UTF-8");
          response.addHeader("Access-Control-Allow-Origin", "*");
          System.out.println("tá chegando aqui");
-         if (usu==null){
-             usu= new Usuario("Maria Coimbra", "asdf", "ASDa");
-         }
          Gson gson = new Gson();
-         String json = gson.toJson(usu);
+         String json = gson.toJson(dao.listarTodos());
          response.getWriter().println(json);
     }
 
@@ -47,8 +44,6 @@ public class PessoaServlet extends HttpServlet {
         String login = request.getParameter("txtLogin");
 
         try {
-            Usuario pessoa = new Usuario(nome, cargo, login);
-            dao.adicionarUm(pessoa);
             request.setAttribute("resposta", "Pessoa cadastrada com sucesso");
 
         } catch (Exception e) {

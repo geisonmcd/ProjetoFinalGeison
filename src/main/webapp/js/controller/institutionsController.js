@@ -1,10 +1,10 @@
 angular.module('institutions').controller("institutionsController", ["$scope", "$route", "institutions", "api",  function ($scope, $route, institutions, api){
     
     const init = function () {
-    	console.log('asdf');
         $scope.editMode = false;
         console.log(institutions);
         $scope.institutions = institutions.data;
+        $scope.usuario = {};
     };
     
     $scope.saveInstitution = function (institution) {
@@ -27,9 +27,10 @@ angular.module('institutions').controller("institutionsController", ["$scope", "
         });
     };
 
-    $scope.editInstitution = function (institution) {
+    $scope.editInstitution = function (usuario) {
+    console.log(usuario)
         $scope.editMode = true;
-        $scope.institution = angular.copy(institution);
+        $scope.usuario = angular.copy(usuario);
     }
 
     init();

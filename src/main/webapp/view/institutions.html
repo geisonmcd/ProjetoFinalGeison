@@ -2,27 +2,49 @@
 	<div class="row">
 		<div class="col-md-12 text-center">
 			<h2>Cadastro de Usuário</h2>
-			{{institutions}}
 		</div>
 	</div>
 	<br />
 	<div class="container">
 		<div class="form-group">
-			<div class="row d-flex justify-content-center">
+			<div class="row">
+				<div class="col-md-2">
+					<label>Login</label> 
+					<input class="form-control" type="text"	ng-model="usuario.login">
+				</div>
+				<div class="col-md-2">
+					<label>Senha</label> 
+					<input class="form-control" type="text"	ng-model="usuario.senha">
+				</div>
 				<div class="col-md-8">
-					<label>Name</label> <input class="form-control" type="text"
-						ng-model="institution.name"
-						ng-keyup="$event.keyCode == 13 ? addInstitution(institution) : null"
-						autofocus>
+					<label>Nome</label> 
+					<input class="form-control" type="text"	ng-model="usuario.nome">
 				</div>
 			</div>
+			<div class="row d-flex">
+				<div class="col-md-2">
+					<label>CPF</label> 
+					<input class="form-control" type="text"	ng-model="usuario.cpf">
+				</div>
+				<div class="col-md-2">
+					<label>Dt. Nasc</label> 
+					<input class="form-control" type="text"	ng-model="usuario.dtNasc">
+				</div>
+				<div class="col-md-4">
+					<label>Sexo</label> 
+					<input class="form-control" type="text"	ng-model="usuario.sexo">
+				</div>
+				<div class="col-md-4">
+					<label>Estado Civil</label> 
+					<input class="form-control" type="text"	ng-model="usuario.estadoCivil">
+				</div>	
+			</div>
+			
 			<br />
 			<div class="row d-flex justify-content-center">
 				<div class="col-md-8">
-					<button class="btn btn-primary form-control"
-						ng-click="saveInstitution(institution)">
-						<span ng-if="!editMode">Add institution</span> <span
-							ng-if="editMode">Edit institution</span>
+					<button class="btn btn-primary form-control" ng-click="saveInstitution(institution)">
+						<span ng-if="!editMode">Add institution</span> <span ng-if="editMode">Edit institution</span>
 					</button>
 				</div>
 			</div>
@@ -64,8 +86,7 @@
 							<button class="btn btn-primary"	ng-click="editInstitution(institution)">
 								<i class="fa fa-edit fa-lg"></i>
 							</button> 
-							<button class="btn btn-danger"
-								ng-click="deleteInstitution(institution)">
+							<button class="btn btn-danger" ng-click="deleteInstitution(institution)">
 								<i class="fa fa-trash fa-lg"></i>
 							</button>
 						</td>

@@ -1,0 +1,9 @@
+br/unisul/aula/projetobanco/config/CrudBasico.class
+br/unisul/aula/projetobanco/dao/ProjetoDAO.class
+br/unisul/aula/projetobanco/servlets/PessoaServlet.class
+br/unisul/aula/projetobanco/dao/PessoaDAO.class
+br/unisul/aula/projetobanco/config/ConstantesNavegacao.class
+br/unisul/aula/projetobanco/servlets/ProjetoServlet.class
+br/unisul/aula/projetobanco/config/ConexaoPostgres.class
+br/unisul/aula/projetobanco/model/Projeto.class
+br/unisul/aula/projetobanco/model/Usuario.class

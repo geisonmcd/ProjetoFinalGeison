@@ -1,9 +1,9 @@
 package br.unisul.aula.projetobanco.servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.persistence.NoResultException;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
-import br.unisul.aula.projetobanco.config.ConstantesNavegacao;
 import br.unisul.aula.projetobanco.dao.PessoaDAO;
 import br.unisul.aula.projetobanco.model.Usuario;
 
@@ -39,20 +38,14 @@ public class PessoaServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String nome = request.getParameter("txtNome");
-        String cargo = request.getParameter("txtCargo");
-        String login = request.getParameter("txtLogin");
-
-        try {
-            request.setAttribute("resposta", "Pessoa cadastrada com sucesso");
-
-        } catch (Exception e) {
-            request.setAttribute("resposta", "Erro desconhecido ao incluir a pessoa");
-            System.out.println(e.getCause());
-        }
-
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher(ConstantesNavegacao.PESSOA + "/respostaAcaoPessoa.jsp");
-        requestDispatcher.forward(request, response);
-
+    	String body = request.getReader().lines().reduce("", (accumulator, actual) -> accumulator + actual);
+    	System.out.println("esse é o body");
+    	System.out.println(body);
+    	Gson gson = new Gson();
+    	Usuario usu = gson.fromJson(body, Usuario.class);
+    	dao.adicionarUm(usu);
+        PrintWriter out = response.getWriter();
+		out.println("Bem Vindo<h3></h3>");
+		out.close();
     }
 }

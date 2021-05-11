@@ -27,7 +27,7 @@
 			</div>
 			<div class="col-md-2">
 				<label>Dt. Nasc</label> 
-				<input class="form-control" type="text"	ng-model="usuario.dtNasc">
+				<input class="form-control" type="date"	ng-model="usuario.dtNasc">
 			</div>
 			<div class="col-md-4">
 				<label>Sexo</label> 
@@ -37,18 +37,17 @@
 				<label>Estado Civil</label> 
 				<input class="form-control" type="text"	ng-model="usuario.estadoCivil">
 			</div>	
-		</div>
-			
-			<br />
-			<div class="row d-flex justify-content-center">
-				<div class="col-md-12">
-					<button class="btn btn-primary form-control" ng-click="saveInstitution(institution)">
-						<span>Salvar Usuário</span>
-					</button>
-				</div>
+		</div>		
+		<br>	
+		<div class="row">
+			<div class="col">
+				<button class="btn btn-primary form-control" ng-click="salvaUsuario()">
+					<span>Salvar Usuário</span>
+				</button>
 			</div>
 		</div>
-	<hr />
+	</div>
+	<br>	
 	<div class="row">
 		<div class="col">
 			<table class="table table-striped table-hover">

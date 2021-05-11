@@ -4,11 +4,11 @@ angular.module('institutions').factory('api', [ '$http', function ($http) {
             list: function () {
                 return $http.get(`/ProjetoFinalGeison/PessoaServlet`);
             },
-            post: function (institution) {
-                return $http.post(`institutions`, institution)
+            post: function (usuario) {
+                return $http.post(`/ProjetoFinalGeison/PessoaServlet`, usuario)
             },
-            put: function (idInstitution, institution) {
-                return $http.put(`institutions/${idInstitution}`, institution);
+            put: function (idUsuario, usuario) {
+                return $http.put(`/ProjetoFinalGeison/PessoaServlet/${idUsuario}`, usuario);
             },
             delete: function (idInstitution) {
                 return $http.delete(`institutions/${idInstitution}`)

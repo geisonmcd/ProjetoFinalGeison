@@ -7,14 +7,14 @@ angular.module('institutions').controller("institutionsController", ["$scope", "
         $scope.usuario = {};
     };
     
-    $scope.saveInstitution = function (institution) {
-        if (!institution) return;
-        if (institution.idInstitution) {
+    $scope.salvaUsuario = function () {
+        if (!$scope.usuario) return;
+        if ($scope.usuario.id) {
             api.institutions.put($scope.institution.idInstitution, institution).then(function (response) {
                 $route.reload();
             });
         } else {
-            api.institutions.post(institution).then(function (response) {
+            api.institutions.post($scope.usuario).then(function (response) {
                 $route.reload();
             });
         }

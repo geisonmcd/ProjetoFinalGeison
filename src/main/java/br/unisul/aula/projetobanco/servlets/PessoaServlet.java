@@ -28,6 +28,8 @@ public class PessoaServlet extends HttpServlet {
          System.out.println("tá chegando aqui");
          Gson gson = new Gson();
          String json = gson.toJson(dao.listarTodos());
+         response.setContentType("application/json");
+         response.setCharacterEncoding("UTF-8");
          response.getWriter().println(json);
     }
 
@@ -44,8 +46,23 @@ public class PessoaServlet extends HttpServlet {
     	Gson gson = new Gson();
     	Usuario usu = gson.fromJson(body, Usuario.class);
     	dao.adicionarUm(usu);
-        PrintWriter out = response.getWriter();
-		out.println("Bem Vindo<h3></h3>");
-		out.close();
+        response.setStatus(HttpServletResponse.SC_OK);
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        String json = gson.toJson(usu);
+        response.getWriter().println(json);
+    }
+    
+    @Override
+    protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	System.out.println("doDelete !!!!!!!!!!!");
+    	String idUsuario = request.getParameter("idUsuario");
+    	System.out.println(idUsuario);
+//    	Gson gson = new Gson();
+//    	Usuario usu = gson.fromJson(body, Usuario.class);
+//    	dao.adicionarUm(usu);
+        response.setStatus(HttpServletResponse.SC_OK);
+//        String json = gson.toJson(usu);
+//        response.getWriter().println(json);
     }
 }

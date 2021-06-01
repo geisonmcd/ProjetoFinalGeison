@@ -10,8 +10,8 @@ angular.module('institutions').factory('api', [ '$http', function ($http) {
             put: function (idUsuario, usuario) {
                 return $http.put(`/ProjetoFinalGeison/PessoaServlet/${idUsuario}`, usuario);
             },
-            delete: function (idInstitution) {
-                return $http.delete(`institutions/${idInstitution}`)
+            delete: function (idUsuario) {
+                return $http.delete(`/ProjetoFinalGeison/PessoaServlet/${idUsuario}`)
             },
             users: {
                 reviews: {
